@@ -1,0 +1,45 @@
+package code_forces;
+import java.io.*; 
+import java.util.*;
+
+			public class C {
+				
+	public static void main(String[] args) throws IOException {
+			   Scanner sc = new Scanner(System.in);
+		int n=sc.nextInt();
+		int k=sc.nextInt();
+			 int a[]=new int[n];
+			 for(int i=0;i<n;i++) {
+				 a[i]=sc.nextInt();
+			 }
+			 System.out.println(maxSumUniqueSubarray(a,n,k));
+			   
+	}
+	static int maxSumUniqueSubarray(int  arr[], int n, int k) {
+		int  preSum[]=new int[n + 1];
+		preSum[0] = arr[0];
+
+		for (int i = 1; i < n; i++)
+		preSum[i] = preSum[i - 1] + arr[i];
+		HashMap < Integer,Integer > lastSeen=new HashMap<>();
+		int res = 0;
+
+		for (int i = 0; i < k - 1; i++)
+		
+lastSeen.put(arr[i],i);
+		int j = 0;
+		for (int i = k - 1; i < n; i++) {
+		int num = arr[i];
+		if (!lastSeen.containsKey(num) || i - lastSeen.get(num) > k - 1) {
+		res = Math.max(res, preSum[i] - ((i - k) >= 0 ? preSum[i - k] : 0));
+		} else {
+			
+		if (lastSeen.get(num) > 0 && i - lastSeen.get(num)<= k - 1)
+		i =lastSeen.get(num) + k - 1;
+		}
+		lastSeen.put(arr[i],i);
+		}
+		return res;
+		}
+			
+			}

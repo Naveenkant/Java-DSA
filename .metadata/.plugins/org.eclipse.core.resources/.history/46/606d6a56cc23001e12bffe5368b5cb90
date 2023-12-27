@@ -1,0 +1,23 @@
+package code_forces;
+import java.io.*;
+
+import java.util.*;
+
+	public class C {
+	     public static void main(String[] args){
+//	    	 System.out.println("dfdf");
+	    	 Scanner sc=new Scanner(System.in);
+//	    	 sc.nextLine();
+	    	String s= sc.nextLine();
+//	    	String a[]=s.split(" ");
+//	    	int row=Integer.parseInt(a[0]);
+//	    	int col=Integer.parseInt(a[1]);
+//	    	
+	    	
+	    	 System.out.println(s);
+			}
+
+	}
+	
+
+	

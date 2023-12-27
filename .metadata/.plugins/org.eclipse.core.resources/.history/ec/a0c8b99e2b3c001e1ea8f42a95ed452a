@@ -1,0 +1,64 @@
+package code_forces;
+import java.io.*;
+import java.util.*;
+	public class C  {
+		
+	 		public static void main(String[] args){
+	 			func(8); //first
+	 			func(6,7); 
+	 			
+	 		}
+	 		static void func(int a) {
+	 			System.out.println(a);
+	 		}
+	 		static void func(int a,int b) {
+	 			System.out.println(a+" "+b);
+	 		}
+	 		static void func(int a,int b,int c) {
+	 			System.out.println();
+	 		}
+	}
+	 class Solution {
+
+		public String largestNumber(final List<Integer> A) {
+		Collections.sort(A);
+		
+		Collections.sort(A,new Comparator<Integer>(){
+			int a=58;
+			Long  h=9L;
+			long hh=9;
+			Character c='f';
+			
+		public int compare(Integer a,Integer b){
+
+			String d=String.valueOf((int)a);
+			String e=String.valueOf((int)b);
+			
+			String x=d+e; //56
+			String y=e+d; //65
+
+				return y.compareTo(x);
+				}
+				});
+
+		String ans="";
+		for(int i=0;i<A.size();i++){
+
+			if(A.get(i)==0&&ans.length()==0)continue;
+	
+			ans=ans+String.valueOf((int)A.get(i));
+
+		}
+
+		if(ans.length()==0){
+
+		ans="0";
+
+		}
+
+		return ans;
+
+		}
+
+		}
+	

@@ -1,0 +1,27 @@
+package code_forces;
+import java.io.*;
+
+import java.util.*;
+
+	public class C implements GG ,FF {
+	     public static void main(String[] args){
+			}
+
+	     @Override
+			public void g() {
+				// TODO Auto-generated method stub
+				System.out.println("dfdf");
+				
+				
+			}
+	}
+	interface GG{
+		   int x=0;
+		   void g();
+	}
+	interface FF{
+		  int x = 0;
+		  void g();
+		
+	}
+	

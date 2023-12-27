@@ -1,0 +1,44 @@
+package code_forces;
+import java.io.*;
+ 
+import java.util.*;
+
+class Student implements Comparable<Student>{
+	String name;
+	int marks;// jo padhne me acha hai 
+	int rollNo;
+	Student(String name,int marks,int rollNo){
+		this.name=name;
+		this.marks=marks;
+		this.rollNo=rollNo;
+	}
+	public int compareTo(Student obj) {
+		return obj.marks-this.marks;
+	}
+}
+	public class C  {
+
+	 		public static void main(String[] args){
+	 			
+ 			PriorityQueue<Student>pq=new PriorityQueue<>();
+ 			Student first=new Student("Rohit",70,1);
+ 			Student second=new Student("Harsh",87,2);
+ 			Student third=new Student("Jatin",90,3);
+ 			Student fourth=new Student("Lalit",89,4);
+ 			Student fifth=new Student("Ravi",50,5);
+ 			Student sixth=new Student("Praveen",20,6);
+ 			
+ 			pq.add(first);
+ 			pq.add(second);
+ 			pq.add(third);
+ 			pq.add(fourth);
+ 			pq.add(fifth);
+ 			pq.add(sixth);
+	 			while(!pq.isEmpty()) {
+	 				Student come=pq.poll();
+	 				System.out.println(come.name+" "+come.marks+" "+come.rollNo);
+	 			}
+	 			
+	 		}
+	 		
+	 	}	

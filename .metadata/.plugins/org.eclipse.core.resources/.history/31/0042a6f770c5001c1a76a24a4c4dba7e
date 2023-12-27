@@ -1,0 +1,48 @@
+package code_forces;
+import java.util.*;
+import java.util.concurrent.PriorityBlockingQueue;
+
+import jdk.internal.util.xml.impl.Pair;
+
+import java.io.*;
+public class A{
+	public static void main(String []args) {
+		Scanner sc=new Scanner(System.in);
+	
+	int array[]
+            = { 4, 6, 10, 12, 18, 18, 20, 20, 30, 45 };
+        int key = 18;
+//        System.out.println(Arrays.binarySearch(array, 11));
+		
+	}
+	}
+class Pair<T1,T2>{
+	T1 first;
+	T2 second;
+	
+	public Pair(T1 first,T2 second) {
+		this.first=first;
+		this.second=second;
+	}
+}
+
+class UndergroundSystem {
+    Map<Integer, Pair<String, Integer>> checkins = new HashMap<>();
+    Map<Pair<String, String>, int[]> routes = new HashMap<>();
+    public void checkIn(int id, String stationName, int t) {
+        checkins.put(id, new Pair(stationName, t));
+    }
+    public void checkOut(int id, String stationName, int t) {
+        Pair<String, Integer> cIn = checkins.get(id);
+        checkins.remove(id);
+        Pair<String, String> route = new Pair(cIn.first, stationName);
+        int[] trip = routes.getOrDefault(route, new int[2]);
+        trip[0]++;
+        trip[1] += t - cIn.second;
+        routes.put(route, trip);
+    }
+    public double getAverageTime(String startStation, String endStation) {
+        int[] trip = routes.get(new Pair(startStation, endStation));
+        return (double)trip[1] / trip[0];
+    }
+}

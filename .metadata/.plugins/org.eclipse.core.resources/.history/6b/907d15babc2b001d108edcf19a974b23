@@ -1,0 +1,24 @@
+package code_forces;
+import java.io.*;
+
+import java.util.*;
+
+public class A{
+	
+    public static void main(String args[]) {
+    	Scanner sc=new Scanner(System.in);
+    	
+    child c=new child();
+    c.area();
+}
+}
+class parent{
+	void area(int x) {
+		System.out.println("parent");
+	}
+}
+class child extends parent{
+	void area() {
+		System.out.println("child");
+	}
+}

@@ -1,0 +1,30 @@
+package code_forces;
+import java.io.*;
+
+import java.util.*;
+
+class A {
+   
+    public static void main(String args[] ) throws Exception {
+     Scanner sc=new Scanner(System.in);
+    
+//     int n=sc.nextInt();
+     int a[]= {64, 34, 25, 12, 22, 11, 90 };
+      insertion(a,a.length);
+     
+    }
+   static void insertion(int a[],int n) {
+    	for(int i=1;i<n;i++) {
+    		int j=i-1;
+    		int key=a[i];
+    		while(j>=0 && a[j]>key) {
+    			a[j+1]=a[j];
+    			j--;
+    		}
+    		a[i]=key;
+    	}
+    	System.out.println(Arrays.toString(a));
+    }
+  
+}
+

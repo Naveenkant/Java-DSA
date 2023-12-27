@@ -1,0 +1,17 @@
+package code_forces;
+import java.io.*;
+import java.util.*;
+
+public class C {
+	public static void main(String[] args){
+		Scanner sc=new Scanner(System.in);
+	
+//	for(int i[]:dp)Arrays.fill(i, -1);
+		String s="abcabc";
+	StringBuilder sb=new StringBuilder(s);
+	int len=sb.length()/2;
+	System.out.println(sb.substring(0,len));
+	System.out.println(sb.substring(len,sb.length()));
+	}
+}
+

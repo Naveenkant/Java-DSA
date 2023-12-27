@@ -1,0 +1,40 @@
+package code_forces;
+import java.io.*;
+import java.util.*;
+
+public class C {
+	public static void main(String[] args){
+		Scanner sc=new Scanner(System.in);
+	
+//	for(int i[]:dp)Arrays.fill(i, -1);
+		String s="abcabcabcabc";
+	StringBuilder sb=new StringBuilder(s);
+	System.out.println(minOperation(s));
+	}
+	static int minOperation(String s) {
+        // code here
+        StringBuilder sb=new StringBuilder(s);
+        int count=0;
+        while(sb.length()>1){
+            if(sb.length()%2==1){
+                count++;
+                sb.deleteCharAt(sb.length()-1);
+                
+            }
+            else{
+                int len=sb.length()/2;
+                if(sb.substring(0,len).equals(sb.substring(len,sb.length()))){
+                   
+                    count++;
+                    StringBuilder make=new StringBuilder(sb.substring(0,len));
+                    sb=make;
+                }else{
+                    sb.deleteCharAt(sb.length()-1);
+                    count++;
+                }
+            }
+        }
+        return count+1;
+    }
+}
+

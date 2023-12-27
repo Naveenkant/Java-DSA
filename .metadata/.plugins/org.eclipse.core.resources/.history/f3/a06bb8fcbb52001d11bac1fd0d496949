@@ -1,0 +1,106 @@
+package code_forces;
+import java.io.*;
+import java.util.*;
+			public class C {
+	            public static void main(String[] args){
+	            	Scanner sc=new Scanner(System.in);
+	            	int t = sc.nextInt();
+	            	int ma=0;
+	                while (t-- > 0) {
+                           ma++;
+	                	int m=sc.nextInt();
+	                	int n=sc.nextInt();
+	                	String s[]=new String[n];
+	                	for(int i=0;i<n;i++) {
+	                			s[i]=sc.next();
+	                	}
+	                	char c[][]=new char[n][m];
+	                	for(int i=0;i<s.length;i++) {
+	                		for(int j=0;j<s[0].length();j++) {
+	                			c[i][j]=s[i].charAt(j);
+	                		}
+	                	}
+	                	int mat[][]=new int[n][m];
+	                	for(int i=0;i<n;i++) {
+	                		for(int j=0;j<m;j++) {
+	                			if(c[i][j]=='.')mat[i][j]=1;
+	                			else mat[i][j]=0;
+	                		}
+	                }
+	                	ArrayList<String>res=findPath(mat,n,m);
+	                	System.out.println(res);
+	                	int max=0;
+	                	for(int i=0;i<res.size();i++) {
+	                		max=Math.max(max, res.get(i).length());
+	                	}
+	                	System.out.println("#"+ma+" "+(max+1));
+	                }
+	                
+	               }
+	               public static ArrayList<String> findPath(int[][] mat, int n,int m) {
+	           		ArrayList <String>res = new ArrayList<>();
+	           		// dx, dy will be used to follow `DLRU` exploring approach
+	           		// which is lexicographically sorted order
+	           		int[] dx = { 1, 0, 0, -1 };
+	           		int[] dy = { 0, -1, 1, 0 };
+	           		if (mat[0][0] == 1) {
+	           			mat[0][0] = 2;
+	           			findPathHelper(res,mat, n,m, 0, 0, dx, dy, "");
+	           		}
+	           		return res;
+	           	}
+	           	
+	           	 static void findPathHelper(ArrayList<String>res,int[][] mat, 
+	           			 int n,int m, int x, int y, int[] dx, int[] dy, String path) {
+	           		if (x == n - 1 && y == m - 1) {
+	           			res.add(path);
+	           			return;
+	           		}
+	           		String dir = "DLRU";
+	           		for (int i = 0; i < 4; i++) {
+	           			int row = x + dx[i];
+	           			int col = y + dy[i];
+	           			if (isValid(row, col, mat, n,m)&& isSafe(mat,n,m,row,col)) {
+	           				mat[row][col] = 2;			 // used to track visited cells of matrix
+	           				findPathHelper(res,mat, n,m, row, col, dx, dy, path + dir.charAt(i));
+	           				mat[row][col] = 1;			 // mark it unvisited yet explorable
+	           			}
+	           		}
+	           	}
+	           	
+	           	 static boolean isValid(int row, int col, int[][] mat, int n,int m) {
+	           		if (row >= 0 && row < n && col >= 0 && col < m && mat[row][col] == 1) {
+	           			return true;
+	           		}
+	           		return false;
+	           	}
+	           	static boolean isSafe(int m[][],int n,int c,int row,int col)
+	           	{
+	           	    int check=0;
+	           		if (row >= 0 && row < n && col >= 0 && col < c
+	           			&& m[row][col] == 1) {
+	           			    if(row -1>= 0 && row-1 < n && col-1 >= 0 && col-1 < c
+	           			&&m[row-1][col-1]==2) check+=1;
+	           			    if(row-1 >= 0 && row < n && col >= 0 && col < n
+	           			&&m[row-1][col]==2) check+=1;
+	           			    if( row-1 >= 0 && row-1 < n && col >= 0 && col+1 < c
+	           			&&m[row-1][col+1]==2) check+=1;
+	           			    if(row >= 0 && row < n && col-1 >= 0 && col-1 < c
+	           			&&m[row][col-1]==2) check+=1;
+	           			    if(row >= 0 && row < n && col+1 >= 0 && col+1 < c
+	           			&&m[row][col+1]==2) check+=1;
+	           			    if(row+1 >= 0 && row+1 < n && col-1 >= 0 && col-1 < c
+	           			&&m[row+1][col-1]==2) check+=1;
+	           			    if(row+1 >= 0 && row+1 < n && col >= 0 && col < c
+	           			&&m[row+1][col]==2) check+=1;
+	           			    if(row+1 >= 0 && row+1 < n && col+1 >= 0 && col+1 < c
+	           			&&m[row+1][col+1]==2) check+=1;
+	           			    
+	           			 if(check<3) return true;
+		           			return false;
+	           		}
+	           		 
+	           		return false;
+	           	}
+	           	
+			}

@@ -1,0 +1,21 @@
+package code_forces;
+import java.io.*;
+ 
+import java.util.*;
+
+	public class C  {
+
+	 		public static void main(String[] args){
+	 			
+	 			PriorityQueue<Integer>pq=new PriorityQueue<Integer>();
+	 			for(int i=1;i<=5;i++) {
+	 				pq.add(i);
+	 			}
+	 			while(pq.size()>0) {
+	 				System.out.println(pq.poll());
+	 			}
+	 			
+	 			
+	 		}
+	 		
+	 	}	

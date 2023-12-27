@@ -1,0 +1,46 @@
+package code_forces;
+import java.util.*;
+import java.util.concurrent.TimeUnit;
+public class B {
+
+	public static void main(String args[]) throws InterruptedException{
+		
+	String	words[] = {"aa","ab","bc"};
+long mod=998244353;
+	System.out.println((long)10%mod * (long)modInverse(3,mod));
+	}
+	
+	static long modInverse(long A, long M)
+    {
+        long m0 = M;
+        long y = 0, x = 1;
+ 
+        if (M == 1)
+            return 0;
+ 
+        while (A > 1) {
+            // q is quotient
+            long q = A / M;
+ 
+            long t = M;
+ 
+            // m is remainder now, process
+            // same as Euclid's algo
+            M = A % M;
+            A = t;
+            t = y;
+ 
+            // Update x and y
+            y = x - q * y;
+            x = t;
+        }
+ 
+        // Make x positive
+        if (x < 0)
+            x += m0;
+ 
+        return x;
+    }
+	
+}
+	

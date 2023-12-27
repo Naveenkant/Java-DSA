@@ -1,0 +1,23 @@
+package code_forces;
+import java.io.*;
+
+import java.util.*;
+
+class A {
+   
+    public static void main(String args[] ) throws Exception {
+        Scanner sc = new Scanner(System.in);
+       String s="abcde";
+       find(s,"",0);
+        }
+    static int count=0;
+   static void find(String s,String res,int i) {
+    	if(i==s.length()) {
+    		System.out.println(res+" "+ (count++));
+    		return;
+    	}
+    	find(s,res+s.charAt(i),i+1);
+    	find(s,res,i+1);
+    }
+}
+

@@ -1,0 +1,61 @@
+package code_forces;
+import java.io.*;
+import java.util.*;
+			public class C {
+	            public static void main(String[] args){
+	            	Scanner sc=new Scanner(System.in);
+	            	int t = sc.nextInt();
+	                while (t-- > 0) {
+                       int n=sc.nextInt();
+                       long a[]=new long[n];
+                       for(int i=0;i<n;i++) {
+                    	   a[i]=sc.nextInt();
+                       }
+                       if(findGCD(a,a.length)==1) {
+                    	   System.out.println(0);
+                       }else {
+                           int sum=Integer.MAX_VALUE;
+                           for(int i=n-1;i>=0;i--) {
+                        	   long temp=a[i];
+                        	   a[i]=i+1;
+                        	  
+                        	   if(findGCD(a,a.length)==1) {
+                        		   sum=Math.min(sum,n-i);
+//                        		   break;
+                        	   }
+                        	   a[i]=temp;
+                           }
+                           int min=sum;
+                          
+                           System.out.println(Math.min(3, min));
+                           
+                       }
+                      
+	                	
+	                }
+	           	}
+	           
+	            static long gcd(long a, long b)
+	            {
+	                if (a == 0)
+	                    return b;
+	                return gcd(b % a, a);
+	            }
+	         
+	            // Function to find gcd of array of
+	            // numbers
+	            static long findGCD(long arr[], int n)
+	            {
+	                long result = arr[0];
+	                for (long element: arr){
+	                    result = gcd(result, element);
+	         
+	                    if(result == 1)
+	                    {
+	                       return 1;
+	                    }
+	                }
+	         
+	                return result;
+	            }
+			}

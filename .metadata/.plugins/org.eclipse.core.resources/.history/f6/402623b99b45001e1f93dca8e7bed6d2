@@ -1,0 +1,32 @@
+package code_forces;
+import java.io.*;
+ 
+import java.util.*;
+
+	public class C  {
+
+	 		public static void main(String[] args){
+	 			int a[] = {38, 44, 84, 12} ;
+//	 			x-10000000000000100000000000000101
+//	 			y-10000000000000100000000000000110
+	 			ArrayList<Integer>result=new ArrayList<>();
+	 			for(int i:a)result.add(i);
+	 			
+	 			for(int i=31;i>=0;i--) {
+	 				ArrayList<Integer>al=new ArrayList<>();
+	 				
+	 				for(int ele:result) {
+	 					if((ele & (1<<i))==1) {//38 44 84 12
+	 						al.add(ele); // 38 44 
+	 					}
+	 				}
+	 				if(al.size()>=2) {
+	 					result=al;
+	 				}
+	 				
+	 			}
+//	 		return result.get(0)&result.get(1);
+	 		}
+	 		
+	 		
+	 		}	

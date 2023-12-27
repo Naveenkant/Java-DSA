@@ -1,0 +1,18 @@
+package code_forces;
+import java.io.*;
+import java.util.*;
+
+public class C {
+	public static void main(String[] args){
+		Scanner sc=new Scanner(System.in);
+	
+//	for(int i[]:dp)Arrays.fill(i, -1);
+	StringBuilder sb=new StringBuilder();
+	sb.append("naveen");
+	
+	sb.insert(1,"kumar");
+	System.out.println(sb);
+	
+	}
+}
+

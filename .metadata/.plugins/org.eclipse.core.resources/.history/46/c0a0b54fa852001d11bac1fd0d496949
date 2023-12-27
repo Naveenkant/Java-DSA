@@ -1,0 +1,46 @@
+package code_forces;
+import java.io.*;
+
+import java.util.*;
+public class A {
+
+    public static void main(String args[]) {
+    	Scanner sc=new Scanner(System.in);
+    	int t = sc.nextInt();
+        while (t-- > 0) {
+        	int a=sc.nextInt();
+        	int b=sc.nextInt();
+        	int c=sc.nextInt();
+        	int d=sc.nextInt();
+        	if(a==1 && b==1)System.out.println(c+" "+d);
+        	else if(a==1) {
+        		
+        		if(d>=2*b) {
+        			System.out.println(c+" "+(2*b));
+        		}else if(c>b) {
+        			int rem=c%b;
+        			if(a<= c-rem) {
+        				System.out.println(c+" "+(c-rem));
+        			}else {
+        				System.out.println(-1 +" "+-1);
+        			}
+        		}
+        		
+        	}else if(b==1) {
+        		if(c>=2*a) {
+        			System.out.println((2*c)+" "+d);
+        		}else if(d>a) {
+        			int rem=c%b;
+        			if(b<= d-rem) {
+        				System.out.println(d+" "+(d-rem));
+        			}else {
+        				System.out.println(-1 +" "+-1);
+        			}
+        		}
+        	}
+        	
+        	
+        }
+        	
+    }
+}

@@ -1,0 +1,36 @@
+package code_forces;
+import java.util.*;
+public class B {
+
+    public static void main(String[] args) throws Exception{
+    	 Scanner sc = new Scanner(System.in);
+    	 int t = sc.nextInt();
+         while (t-- > 0) {
+            int n=sc.nextInt();
+            String s=sc.next();
+            int pos=0;
+            for(int i=0;i<s.length();i++) {
+            	if(s.charAt(i)=='1') {
+            		pos=i;
+            		break;
+            	}
+            }
+            int o=0;
+            int z=0;
+            for(int i=pos;i<s.length();i++) {
+            	if(s.charAt(i)=='1')o++;
+            }
+            boolean one=true;
+            boolean zero=false;
+            for(int i=pos;i<n;i++) {
+            	if(one ==true && s.charAt(i)=='0') {
+            		one=false;
+            		z++;
+            	}else  {
+            		one=true;
+            	}
+            }
+            System.out.println(z+o-1);
+         }
+}
+}

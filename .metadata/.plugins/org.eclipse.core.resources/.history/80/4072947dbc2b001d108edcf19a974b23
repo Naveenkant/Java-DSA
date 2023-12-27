@@ -1,0 +1,40 @@
+package code_forces;
+import java.io.*;
+
+import java.util.*;
+class Node{
+	Node next;	
+	int data;
+	Node(int data){
+		this.data=data;
+	}
+}
+public class A{
+	static Node front=null;
+    public static void main(String args[]) {
+    	Scanner sc=new Scanner(System.in);
+    	
+    	Node head=new Node(78);
+    	head.next=new Node(2);
+    	head.next.next=new Node(7);
+    	head.next.next.next=new Node(4);
+    	head.next.next.next.next=new Node(5);
+    	head.next.next.next.next.next=new Node(6);
+    	System.out.println(head.next);
+    	front=head;
+   check(head);
+   System.out.println(max);
+    	
+    }
+   
+   static int max=0;
+   
+  static  void check(Node head) {
+    	if(head==null)return ;
+    	check(head.next);
+    	System.out.println(front.data+" "+head.data);
+    	max=Math.max(max, front.data+head.data);
+    System.out.println(max);
+    	front=front.next;
+    }
+}

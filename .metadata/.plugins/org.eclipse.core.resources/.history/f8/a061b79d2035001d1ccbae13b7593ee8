@@ -1,0 +1,16 @@
+package code_forces;
+import java.io.*;
+
+import java.util.*;
+
+class A {
+   
+    public static void main(String args[] ) throws Exception {
+      int x=20;
+      int y=35;
+      x=x++ + y++ ;
+      y=++x + ++y;
+      System.out.println(x+" "+y);
+    }
+}
+

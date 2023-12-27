@@ -1,0 +1,83 @@
+package code_forces;
+import java.util.*;
+public class B {
+
+    public static void main(String[] args) throws Exception{
+    	 Scanner sc = new Scanner(System.in);
+    	 class ele implements Comparable<ele>{
+     		int product;
+     		int ds;
+     		int v;
+     		ele(int v,int product,int ds){
+     			this.v=v;
+     			this.product=product;
+     			this.ds=ds;
+     					
+     		}
+			@Override
+			public int compareTo(ele o) {
+				return o.product-this.product;
+			}
+     	}
+     	class pair{
+     		int v;
+     		int a;
+     		int b;
+     		int d;
+     		
+     		pair(int v,int a,int b,int d){
+     			this.v=v;
+     			this.a=a;
+     			this.b=b;
+     			this.d=d;
+     		
+     		}
+     	}
+
+       
+        int T = sc.nextInt();
+        for(int test_case =1;test_case<=T;test_case++) {
+        	
+        int n=sc.nextInt();
+        int e=sc.nextInt();
+        int k=sc.nextInt();
+        int p=sc.nextInt();
+        ArrayList<ArrayList<pair>>adj=new ArrayList<>();
+        for(int i=0;i<=n;i++) {
+    	   adj.add(new ArrayList<pair>());
+       }
+       for(int i=0;i<e;i++) {
+    	   int u=sc.nextInt();
+    	   int v=sc.nextInt();
+    	   int a=sc.nextInt();
+    	   int b=sc.nextInt();
+    	   int d=sc.nextInt();
+    	   adj.get(u).add(new pair(v,a,b,d));
+    			   
+       }
+            PriorityQueue<ele>pq=new PriorityQueue<>();
+            int max=0;
+            pq.add(new ele(1,p,0));
+            int count=0;
+        	while(pq.isEmpty()==false) {
+count++;
+        		ele out=pq.poll();
+        		if(out.v== n && out.ds== k) {
+        			max=Math.max(max, out.product);
+        			break;
+        		}
+        		for(pair i:adj.get(out.v)) {
+        			int v=i.v;
+        			int a=i.a;
+        			int b=i.b;
+        			int d=i.d;
+        			if(d+out.ds <=k)
+        			pq.add(new ele(v,Math.max(out.product*a+b,0),d+out.ds));
+        		}
+        	}
+        	
+        	System.out.println("#"+ test_case+" "+max);
+        	System.out.println(count);
+        }
+}
+}

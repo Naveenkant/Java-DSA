@@ -1,0 +1,29 @@
+package code_forces;
+import java.io.*;
+
+import java.util.*;
+
+class A {
+   
+    public static void main(String args[] ) throws Exception {
+        Scanner sc = new Scanner(System.in);
+        CC obj=new CC();
+       
+        }
+    
+}
+class AA{
+	AA(){
+	System.out.println("aa");	
+	}
+	}
+class BB extends AA{
+	BB(){
+		System.out.println("bb");
+	}
+}
+class CC extends BB{
+	CC(){
+		System.out.println("cc");
+	}
+}

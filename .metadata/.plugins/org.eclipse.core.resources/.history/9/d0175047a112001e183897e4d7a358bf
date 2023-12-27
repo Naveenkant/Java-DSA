@@ -1,0 +1,30 @@
+package code_forces;
+import java.util.*;
+import java.util.concurrent.TimeUnit;
+public class B {
+
+	public static void main(String args[]) throws InterruptedException{
+		
+	String	words[] = {"aa","ab","bc"};
+
+	System.out.println(minimizeConcatenatedLength(words));
+	}
+	    static public int minimizeConcatenatedLength(String[] words) {
+	        int dp[][]=new int[words.length][2];
+	        for(int i[]:dp)Arrays.fill(i,-1);
+	        return find(words,1,0,dp,"");
+	    }
+	   static  int find(String words[],int i,int pick,int dp[][],String res){
+	        if(i==words.length)return 0;
+	        
+	        int first=cal(words[i-1],words[i])+find(words,i+1,0,dp,res);
+	        int second=cal(words[i],words[i-1])+find(words,i+1,1,dp,res);
+	        return Math.min(first,second);
+	    }
+	  static  int cal(String a,String b){
+	        if(a.charAt(a.length()-1)==b.charAt(0))return a.length()+b.length()-1;
+	        else return a.length()+b.length();
+	    }
+	
+}
+	

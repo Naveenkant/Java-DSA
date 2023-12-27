@@ -1,0 +1,13 @@
+package code_forces;
+import java.io.*;
+
+import java.util.*;
+
+	public class C implements GG ,FF {
+	     public static void main(String[] args){
+			}
+
+	}
+	
+
+	

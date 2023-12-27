@@ -1,0 +1,39 @@
+package code_forces;
+import java.io.*;
+
+import java.util.*;
+
+class A {
+   
+    public static void main(String args[] ) throws Exception {
+     Scanner sc=new Scanner(System.in);
+    
+//     int n=sc.nextInt();
+     int a[]= {64, 34, 25, 12, 22, 11, 90 };
+     
+    }
+  void quickSort(int a[],int st,int end,int n){
+	 if(st<end) {
+		 int pivot=partition(a,st,end);
+		 quickSort(a,st,pivot-1,n);
+		 quickSort(a,st,pivot+1,n);
+	 }
+ }
+  int partition(int a[],int st,int end) {
+	  int pivot=end;
+	  int i=st;
+	  for(int j=st;j<=end;j++) {
+		  if(a[pivot]>a[j]) {
+			  int temp=a[i];
+			  a[i]=a[j];
+			  a[j]=temp;
+			  i++;
+		  }
+	  }
+	  int temp=a[i+1];
+	  a[i+1]=a[pivot];
+	  a[pivot]=temp;
+	  return i+1;
+  }
+}
+

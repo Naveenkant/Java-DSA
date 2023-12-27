@@ -1,0 +1,33 @@
+package code_forces;
+import java.io.*;
+
+import java.util.*;
+
+class A {
+   
+    public static void main(String args[] ) throws Exception {
+     Scanner sc=new Scanner(System.in);
+    
+//     int n=sc.nextInt();
+     int a[]= {64, 34, 25, 12, 22, 11, 90 };
+      selection(a,a.length);
+     
+    }
+   static void selection(int a[],int n) {
+	   boolean sort=false;
+    	for(int i=0;i<n;i++) {
+    		int mini=i;
+    		for(int j=i;j<n;j++) {
+    			if(a[mini]>a[j]) {
+    				mini=j;
+    			}
+    		}
+    		int temp=a[i];
+    		a[i]=a[mini];
+    		a[mini]=temp;
+    		
+    	}
+    	System.out.println(Arrays.toString(a));
+    }
+}
+
